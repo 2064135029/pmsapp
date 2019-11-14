@@ -1,18 +1,18 @@
 class LoginEntity {
-	String passWord;
-	String userName;
+	int status;
+	String msg;
 
-	LoginEntity({this.passWord, this.userName});
+	LoginEntity({this.msg, this.status});
 
 	LoginEntity.fromJson(Map<String, dynamic> json) {
-		passWord = json['passWord'];
-		userName = json['userName'];
+		status = json['status'];
+		msg = json['msg'];
 	}
 
 	Map<String, dynamic> toJson() {
 		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['passWord'] = this.passWord;
-		data['userName'] = this.userName;
+		data['msg'] = this.msg;
+		data['status'] = this.status;
 		return data;
 	}
 

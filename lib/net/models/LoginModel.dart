@@ -13,8 +13,8 @@ class LoginModel{
     print(response.data);
     print('8888888888888');
     if(response != null && response.result){
-//      LoginEntity loginEntity = LoginEntity.fromJson(json.decode(response.data));
-      return new DataResult(response.data, true);
+      LoginEntity loginEntity = LoginEntity.fromJson(response.data);
+      return new DataResult(loginEntity, true);
     }else{
       return new DataResult(null, false);
     }
