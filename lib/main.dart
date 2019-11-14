@@ -1,4 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:pmsapp/net/DataResult.dart';
+import 'package:pmsapp/net/models/LoginModel.dart';
+
+import 'net/HttpRequest.dart';
+import 'net/ResultData.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,6 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    HttpRequest.setBaseUrl('http://127.0.0.1:7001');
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -54,6 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      var res = LoginModel.loginReq("11", "111");
+      print(res);
+      print('++++++++++++++');
     });
   }
 

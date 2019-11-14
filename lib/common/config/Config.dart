@@ -1,5 +1,5 @@
 class Config {
-  static const bool DEBUG = false;
+  static const bool DEBUG = true;
   static const String TOKEN_KEY = "wujianhe";
   static const String USER_BASIC_CODE = "user";
 }

@@ -30,7 +30,8 @@ class HttpRequest {
   }
 
   static post(url,param) async{
-    return await request(_baseUrl+url, param, {"Accept": 'application/vnd.github.VERSION.full+json'}, new Options(method: 'POST'));
+    print(_baseUrl+url);
+    return await request(_baseUrl+url, param, null, new Options(method: 'POST'));
   }
 
   static delete(url,param) async{

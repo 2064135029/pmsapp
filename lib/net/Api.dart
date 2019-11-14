@@ -1,4 +1,4 @@
 class Api{
   ///网络错误
-  static const String loginApi = "";
+  static const String loginApi = "/app/user/login";
 }
