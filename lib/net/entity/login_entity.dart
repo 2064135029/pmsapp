@@ -15,4 +15,5 @@ class LoginEntity {
 		data['userName'] = this.userName;
 		return data;
 	}
+
 }
