@@ -10,7 +10,8 @@ import 'package:pmsapp/net/DataResult.dart';
 class LoginModel{
   static loginReq(String passWord,String userName) async{
     ResultData response = await HttpRequest.post(Api.loginApi, {"passWord" : passWord,"userName":userName});
-//    print(response.data + '++++++');
+    print(response.data);
+    print('8888888888888');
     if(response != null && response.result){
 //      LoginEntity loginEntity = LoginEntity.fromJson(json.decode(response.data));
       return new DataResult(response.data, true);
