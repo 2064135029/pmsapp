@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:apppms/common/SpUtils.dart';
+import 'package:pmsapp/common/SpUtils.dart';
 import 'package:connectivity/connectivity.dart';
 
 import 'dart:collection';
 
-import 'package:apppms/common/config/Config.dart';
-import 'package:apppms/net/ResultCode.dart';
-import 'package:apppms/net/ResultData.dart';
+import 'package:pmsapp/common/config/Config.dart';
+import 'package:pmsapp/net/ResultCode.dart';
+import 'package:pmsapp/net/ResultData.dart';
 
 ///http请求管理类，可单独抽取出来
 class HttpRequest {
