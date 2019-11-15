@@ -11,15 +11,18 @@ import 'net/HttpRequest.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      routes: {
+       'pms/router/login': (_) => LoginPage(),
+        'pms/router/home': (_) => MyHomePage(title: "11")
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: MyHomePage(title: "首页"),
     );
   }
 }
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -46,17 +50,19 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
       print(_counter);
     });
+    LoginModel.loginReq("11", "111").then((res) => {print(res)});
   }
 
   void login() async {
-    DataResult res = await LoginModel.loginReq("11", "111");
-    print(res.data.msg);
+//    DataResult res = await LoginModel.loginReq("11", "111");
+//    print(res.data.msg);
+    Navigator.of(context).pushNamed('pms/router/login');
     setState(() {
       _counter++;
     });
   }
 
-  void _init(){
+  void _init() {
     // 设置ip地刺
     HttpRequest.setBaseUrl(Config.BaseUrl);
   }

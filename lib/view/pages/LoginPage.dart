@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pmsapp/main.dart';
+import 'package:pmsapp/view/pages/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -25,7 +27,10 @@ class LoginPageState extends State<LoginPage> {
           centerTitle: true,
         ),
         body: Center(
-          child: LoginBody(),
+          child: Container(
+            color: Colors.white,
+            child: LoginBody(),
+          ) ,
         ));
   }
 }
@@ -39,7 +44,13 @@ class LoginBody extends StatelessWidget {
     TextEditingController _controllerPwd = new TextEditingController();
 
 //    _controllerName.text = userModel?.username ?? "";
-    loginClick() {}
+    loginClick() {
+      Navigator.push(
+        context,
+        new MaterialPageRoute(builder: (context) => new HomePage()),
+      );
+//      Navigator.of(context).pushNamed('pms/router/home');
+    }
 
     void _userLogin() {
       String username = _controllerName.text;
@@ -58,7 +69,7 @@ class LoginBody extends StatelessWidget {
       children: <Widget>[
         new Expanded(
             child: new Container(
-          margin: EdgeInsets.only(left: 20, top: 15, right: 20),
+          margin: EdgeInsets.only(left: 10, top: 15, right: 10),
           child: new Column(
             children: <Widget>[
               Padding(
@@ -120,6 +131,7 @@ class LoginBody extends StatelessWidget {
                 padding: EdgeInsets.all(20.0),
               ),
               MaterialButton(
+                height: 50,
                 minWidth: double.infinity,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -127,7 +139,7 @@ class LoginBody extends StatelessWidget {
                 color: Colors.blue,
                 textTheme: ButtonTextTheme.primary,
                 onPressed: loginClick,
-                child: Text('登录', style: TextStyle(fontSize: 20)),
+                child: Text('登录', style: TextStyle(fontSize: 17)),
               )
             ],
           ),
