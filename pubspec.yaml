@@ -18,8 +18,13 @@ environment:
 
 dependencies:
   dio: ^3.0.4
+  rxdart: ^0.22.0
   connectivity: ^0.4.5
 
+  base_library:
+    git:
+      url: git://github.com/2064135029/flutter_utils.git
+      path: base_library
   flutter:
     sdk: flutter
 
