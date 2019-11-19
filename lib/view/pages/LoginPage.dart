@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/main.dart';
+import 'package:pmsapp/view/dialog/net_loading_dialog.dart';
 import 'package:pmsapp/view/pages/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,11 +18,18 @@ class LoginPageState extends State<LoginPage> {
   LoginPage get widget => super.widget;
 
   @override
+  void setState(fn) {
+    // TODO: implement setState
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
         appBar: AppBar(
           title: new Text('登录'),
+//          leading: Text(''),
           iconTheme: new IconThemeData(color: Colors.red),
           //文字title居中
           centerTitle: true,
@@ -30,7 +38,7 @@ class LoginPageState extends State<LoginPage> {
           child: Container(
             color: Colors.white,
             child: LoginBody(),
-          ) ,
+          ),
         ));
   }
 }
@@ -38,21 +46,35 @@ class LoginPageState extends State<LoginPage> {
 class LoginBody extends StatelessWidget {
   var usernameController = new TextEditingController();
 
+//  LoginBody(this.)
+  bool isLoading = true;
+
   @override
   Widget build(BuildContext context) {
     TextEditingController _controllerName = new TextEditingController();
     TextEditingController _controllerPwd = new TextEditingController();
 
-//    _controllerName.text = userModel?.username ?? "";
+    _loadingCallBack(fun){
+      Future.delayed(Duration(seconds: 5), () {
+       fun();
+       Navigator.of(context).pushNamed('pms/router/home');
+      });
+    }
     loginClick() {
-      Navigator.push(
-        context,
-        new MaterialPageRoute(builder: (context) => new HomePage()),
-      );
+      showDialog(
+          context: context,
+          builder: (context) {
+            return new NetLoadingDialog(
+             dismissDialog: _loadingCallBack,
+            );
+          });
 //      Navigator.of(context).pushNamed('pms/router/home');
     }
 
+
     void _userLogin() {
+      this.isLoading = false;
+      return;
       String username = _controllerName.text;
       String password = _controllerPwd.text;
       if (username.isEmpty || username.length < 6) {

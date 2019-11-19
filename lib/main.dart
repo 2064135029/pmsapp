@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       routes: {
-       'pms/router/login': (_) => LoginPage(),
+        'pms/router/login': (_) => LoginPage(),
         'pms/router/home': (_) => MyHomePage(title: "11")
       },
       theme: ThemeData(
@@ -56,7 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void login() async {
 //    DataResult res = await LoginModel.loginReq("11", "111");
 //    print(res.data.msg);
-    Navigator.of(context).pushNamed('pms/router/login');
+//    Navigator.of(context).pushNamed('pms/router/login');
+//    Navigator.of(context).pushNamedAndRemoveUntil({"pms/router/login"});
+    Navigator.of(context).pushNamedAndRemoveUntil('pms/router/login', (Route<dynamic> route) => false);
     setState(() {
       _counter++;
     });
