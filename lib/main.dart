@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/net/DataResult.dart';
 import 'package:pmsapp/net/models/LoginModel.dart';
+import 'package:pmsapp/utils/RouteUtil.dart';
 import 'package:pmsapp/view/pages/LoginPage.dart';
 
 import 'common/config/Config.dart';
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       routes: {
-        'pms/router/login': (_) => LoginPage(),
-        'pms/router/home': (_) => MyHomePage(title: "11")
+        BaseConstant.routeLogin: (ctx) => LoginPage(),
+        BaseConstant.routeMain: (ctx) => MyHomePage(title: 'ddd')
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -58,7 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
 //    print(res.data.msg);
 //    Navigator.of(context).pushNamed('pms/router/login');
 //    Navigator.of(context).pushNamedAndRemoveUntil({"pms/router/login"});
-    Navigator.of(context).pushNamedAndRemoveUntil('pms/router/login', (Route<dynamic> route) => false);
+//    Navigator.of(context).pushNamedAndRemoveUntil(
+//        'pms/router/login', (Route<dynamic> route) => false);
+  RouteUtil.goLogin(context);
     setState(() {
       _counter++;
     });

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/main.dart';
+import 'package:pmsapp/utils/RouteUtil.dart';
 import 'package:pmsapp/view/dialog/net_loading_dialog.dart';
 import 'package:pmsapp/view/pages/HomePage.dart';
 
@@ -57,7 +58,8 @@ class LoginBody extends StatelessWidget {
     _loadingCallBack(fun){
       Future.delayed(Duration(seconds: 5), () {
        fun();
-       Navigator.of(context).pushNamed('pms/router/home');
+//       Navigator.of(context).pushNamed('pms/router/home');
+      RouteUtil.goMain(context);
       });
     }
     loginClick() {
