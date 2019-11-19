@@ -8,15 +8,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.3.0"
-  base_library:
-    dependency: "direct main"
-    description:
-      path: base_library
-      ref: HEAD
-      resolved-ref: de1b74d741290e86c91da9530615f062d07c83bb
-      url: "git://github.com/2064135029/flutter_utils.git"
-    source: git
-    version: "0.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -38,13 +29,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.14.11"
-  common_utils:
-    dependency: transitive
-    description:
-      name: common_utils
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.3"
   connectivity:
     dependency: "direct main"
     description:
@@ -52,20 +36,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.5+3"
-  convert:
-    dependency: transitive
-    description:
-      name: convert
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.1.1"
-  crypto:
-    dependency: transitive
-    description:
-      name: crypto
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.1.3"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -73,13 +43,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
-  decimal:
-    dependency: transitive
-    description:
-      name: decimal
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.3.5"
   dio:
     dependency: "direct main"
     description:
@@ -87,20 +50,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.4"
-  fluintl:
-    dependency: transitive
-    description:
-      name: fluintl
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.3"
-  flustars:
-    dependency: transitive
-    description:
-      name: flustars
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.2.6+1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -139,13 +88,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.6.4"
-  path_provider:
-    dependency: transitive
-    description:
-      name: path_provider
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.4.2"
   pedantic:
     dependency: transitive
     description:
@@ -153,13 +95,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.0+1"
-  platform:
-    dependency: transitive
-    description:
-      name: platform
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.2.1"
   quiver:
     dependency: transitive
     description:
@@ -167,13 +102,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.5"
-  rational:
-    dependency: transitive
-    description:
-      name: rational
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.3.6"
   rxdart:
     dependency: "direct main"
     description:
@@ -181,13 +109,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.22.6"
-  shared_preferences:
-    dependency: transitive
-    description:
-      name: shared_preferences
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.5.4+5"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -221,13 +142,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
-  synchronized:
-    dependency: transitive
-    description:
-      name: synchronized
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.1.0+1"
   term_glyph:
     dependency: transitive
     description:

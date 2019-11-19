@@ -1,102 +1,79 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pmsapp/blocs/application_bloc.dart';
+import 'package:pmsapp/blocs/bloc_provider.dart';
+import 'package:pmsapp/blocs/index.dart';
 import 'package:pmsapp/net/DataResult.dart';
 import 'package:pmsapp/net/models/LoginModel.dart';
 import 'package:pmsapp/utils/RouteUtil.dart';
+import 'package:pmsapp/view/pages/HomePage.dart';
 import 'package:pmsapp/view/pages/LoginPage.dart';
 
 import 'common/config/Config.dart';
 import 'net/HttpRequest.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      routes: {
-        BaseConstant.routeLogin: (ctx) => LoginPage(),
-        BaseConstant.routeMain: (ctx) => MyHomePage(title: 'ddd')
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+void main() => runApp(BlocProvider<ApplicationBloc>(
+      bloc: ApplicationBloc(),
+      child: BlocProvider(
+        child: MyApp(),
+        bloc: MainBloc(),
       ),
-      home: MyHomePage(title: "首页"),
-    );
+    ));
+
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new MyAppState();
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class MyAppState extends State<MyApp> {
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _init();
+    _initListener();
+
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      print(_counter);
-    });
-    LoginModel.loginReq("11", "111").then((res) => {print(res)});
-  }
-
-  void login() async {
-//    DataResult res = await LoginModel.loginReq("11", "111");
-//    print(res.data.msg);
-//    Navigator.of(context).pushNamed('pms/router/login');
-//    Navigator.of(context).pushNamedAndRemoveUntil({"pms/router/login"});
-//    Navigator.of(context).pushNamedAndRemoveUntil(
-//        'pms/router/login', (Route<dynamic> route) => false);
-  RouteUtil.goLogin(context);
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _init() {
-    // 设置ip地刺
+  // 初始化ulr
+  _init(){
     HttpRequest.setBaseUrl(Config.BaseUrl);
+  }
+  // 监听bloc数据改变，做相应的逻辑判断
+  _initListener(){
+    final ApplicationBloc bloc = BlocProvider.of<ApplicationBloc>(context);
+    bloc.appEventStream.listen((value) {
+      switch (value.id) {
+        default:
+          break;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    // TODO: implement build
+    return MaterialApp(
+      title: 'Flutter Demo',
+      routes: {
+        BaseConstant.routeLogin: (ctx) => LoginPage(),
+        BaseConstant.routeMain: (ctx) => HomePage(text: '首页')
+      },
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: login,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: HomePage(text: "首页"),
     );
   }
 }

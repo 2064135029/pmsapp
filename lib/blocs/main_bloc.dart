@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:common_utils/common_utils.dart';
+
 import 'package:pmsapp/blocs/bloc_provider.dart';
 //import 'package:pmsapp/models/models.dart';
 //import 'package:pmsapp/utils/http_utils.dart';
@@ -23,7 +23,7 @@ class MainBloc implements BlocBase {
 //  HttpUtils httpUtils = new HttpUtils();
 
   MainBloc() {
-    LogUtil.e("MainBloc......");
+//    LogUtil.e("MainBloc......");
   }
 
   @override
