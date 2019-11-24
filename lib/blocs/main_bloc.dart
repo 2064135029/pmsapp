@@ -3,6 +3,8 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/blocs/bloc_provider.dart';
 import 'package:pmsapp/common/config/Config.dart';
+import 'package:pmsapp/net/DataResult.dart';
+import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
 import 'package:pmsapp/net/models/AppModel.dart';
 
@@ -11,11 +13,11 @@ import 'package:pmsapp/net/models/AppModel.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MainBloc implements BlocBase {
-  BehaviorSubject<List<AppEntity>> _app = BehaviorSubject<List<AppEntity>>();
+  BehaviorSubject<List<AppDataData>> _app = BehaviorSubject<List<AppDataData>>();
 
-  Sink<List<AppEntity>> get _appSink => _app.sink;
+  Sink<List<AppDataData>> get _appSink => _app.sink;
 
-  Stream<List<AppEntity>> get appStream => _app.stream;
+  Stream<List<AppDataData>> get appStream => _app.stream;
 
   MainBloc() {}
 
@@ -41,7 +43,10 @@ class MainBloc implements BlocBase {
 
   Future getAppData() {
     AppModel.getAppclication().then((res) {
-//      print(res);
+      DataResult r = res;
+      AppDataEntity appDataEntity = r.data;
+      _appSink.add(appDataEntity.data);
+      print(res);
     });
   }
 

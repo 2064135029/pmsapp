@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pmsapp/blocs/index.dart';
 import 'package:pmsapp/common/SpUtils.dart';
+import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
 import 'package:pmsapp/utils/RouteUtil.dart';
 import 'package:pmsapp/view/widgets/GridItem.dart';
@@ -28,14 +29,24 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('首页'),
+        actions: <Widget>[
+          new IconButton(
+              icon: new Icon(
+                Icons.build,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                RouteUtil.goLogin(context);
+              })
+        ],
       ),
       body: new Container(
           margin: const EdgeInsets.all(10.0),
           child: new StreamBuilder(
               stream: bloc.appStream,
               builder: (BuildContext context,
-                  AsyncSnapshot<List<AppEntity>> snapshot) {
-                List<AppEntity> lists = snapshot.data;
+                  AsyncSnapshot<List<AppDataData>> snapshot) {
+                List<AppDataData> lists = snapshot.data;
                 if (lists == null) {
                   return new Center(
                     child: new Text('暂无应用'),

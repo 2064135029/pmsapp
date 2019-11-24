@@ -1,5 +1,6 @@
 import 'package:pmsapp/net/entity/login_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
+import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/login_entity.dart';
 
 class EntityFactory {
@@ -10,6 +11,8 @@ class EntityFactory {
       return LoginDataEntity.fromJson(json) as T;
     } else if (T.toString() == "AppEntity") {
       return AppEntity.fromJson(json) as T;
+    } else if (T.toString() == "AppDataEntity") {
+      return AppDataEntity.fromJson(json) as T;
     } else if (T.toString() == "LoginEntity") {
       return LoginEntity.fromJson(json) as T;
     } else {

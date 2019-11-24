@@ -24,6 +24,9 @@ class HttpRequest {
   static setBaseUrl(String baseUrl) {
     _baseUrl = baseUrl;
   }
+  static String getBaseUrl(){
+    return _baseUrl;
+  }
 
   static get(url, param) async {
     return await request(
@@ -32,9 +35,7 @@ class HttpRequest {
 
   static post(url, param) async {
 //    print(_baseUrl + url);
-    await SpUtils.get(APPKEYS.ip).then((value) {
-      setBaseUrl(value);
-    });
+    _baseUrl = await SpUtils.get(APPKEYS.ip);
     return await request(
         _baseUrl + url, param, null, new Options(method: 'POST'));
   }
@@ -115,6 +116,8 @@ class HttpRequest {
     }
 
     Response response;
+    String token = await SpUtils.get(APPKEYS.Token);
+    params['token'] = token;
     try {
       response = await dio.request(url, data: params, options: option);
     } on DioError catch (e) {

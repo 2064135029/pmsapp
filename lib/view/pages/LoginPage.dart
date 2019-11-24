@@ -61,8 +61,12 @@ class LoginPageState extends State<LoginPage> {
 
 class LoginBody extends StatelessWidget {
 //  var usernameController = new TextEditingController();
+//  HomePage({Key key, this.text}) : super(key: key);
+
+  LoginBody({Key key}) : super(key: key);
 
 //  LoginBody(this.)
+
   bool isLoading = true;
 
   @override
