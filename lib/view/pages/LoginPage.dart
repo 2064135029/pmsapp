@@ -34,6 +34,12 @@ class LoginPageState extends State<LoginPage> {
           iconTheme: new IconThemeData(color: Colors.red),
           //文字title居中
           centerTitle: true,
+          actions: <Widget>[
+            new IconButton(icon: new Icon(Icons.build, color: Colors.white,),
+                onPressed: () {
+                  RouteUtil.goSetIP(context);
+                })
+          ],
         ),
         body: Center(
           child: Container(
@@ -55,11 +61,11 @@ class LoginBody extends StatelessWidget {
     TextEditingController _controllerName = new TextEditingController();
     TextEditingController _controllerPwd = new TextEditingController();
 
-    _loadingCallBack(fun){
+    _loadingCallBack(fun) {
       Future.delayed(Duration(seconds: 5), () {
-       fun();
+        fun();
 //       Navigator.of(context).pushNamed('pms/router/home');
-      RouteUtil.goMain(context);
+        RouteUtil.goMain(context);
       });
     }
     loginClick() {
@@ -67,7 +73,7 @@ class LoginBody extends StatelessWidget {
           context: context,
           builder: (context) {
             return new NetLoadingDialog(
-             dismissDialog: _loadingCallBack,
+              dismissDialog: _loadingCallBack,
             );
           });
 //      Navigator.of(context).pushNamed('pms/router/home');
@@ -93,81 +99,81 @@ class LoginBody extends StatelessWidget {
       children: <Widget>[
         new Expanded(
             child: new Container(
-          margin: EdgeInsets.only(left: 10, top: 15, right: 10),
-          child: new Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                //用户名输入框
-                child: TextField(
-                  //控制器
-                  controller: usernameController,
-                  maxLength: 11,
-                  maxLines: 1,
-                  //是否自动更正
-                  autocorrect: true,
-                  //是否自动对焦
+              margin: EdgeInsets.only(left: 10, top: 15, right: 10),
+              child: new Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    //用户名输入框
+                    child: TextField(
+                      //控制器
+                      controller: usernameController,
+                      maxLength: 11,
+                      maxLines: 1,
+                      //是否自动更正
+                      autocorrect: true,
+                      //是否自动对焦
 //                      autofocus: true,
-                  decoration: new InputDecoration(
-                    //                hintText: "请输入用户名",
-                    labelText: "请输入账号(手机号码)",
-                    helperText: "账号",
-                    icon: new Icon(Icons.account_box),
+                      decoration: new InputDecoration(
+                        //                hintText: "请输入用户名",
+                        labelText: "请输入账号(手机号码)",
+                        helperText: "账号",
+                        icon: new Icon(Icons.account_box),
+                      ),
+                      onChanged: (text) {
+                        //内容改变的回调
+                        print('change $text');
+                      },
+                      onSubmitted: (text) {
+                        //内容提交(按回车)的回调
+                        print('submit $text');
+                      },
+                    ),
                   ),
-                  onChanged: (text) {
-                    //内容改变的回调
-                    print('change $text');
-                  },
-                  onSubmitted: (text) {
-                    //内容提交(按回车)的回调
-                    print('submit $text');
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                //用户名输入框
-                child: TextField(
-                  //控制器
-                  controller: _controllerPwd,
-                  //是否自动更正
-                  autocorrect: true,
-                  obscureText: true,
-                  //是否自动对焦
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    //用户名输入框
+                    child: TextField(
+                      //控制器
+                      controller: _controllerPwd,
+                      //是否自动更正
+                      autocorrect: true,
+                      obscureText: true,
+                      //是否自动对焦
 //                      autofocus: true,
-                  decoration: new InputDecoration(
-                    //                hintText: "请输入用户名",
-                    labelText: "请输入密码",
-                    helperText: "密码",
-                    icon: new Icon(Icons.lock),
+                      decoration: new InputDecoration(
+                        //                hintText: "请输入用户名",
+                        labelText: "请输入密码",
+                        helperText: "密码",
+                        icon: new Icon(Icons.lock),
+                      ),
+                      onChanged: (text) {
+                        //内容改变的回调
+                        print('change $text');
+                      },
+                      onSubmitted: (text) {
+                        //内容提交(按回车)的回调
+                        print('submit $text');
+                      },
+                    ),
                   ),
-                  onChanged: (text) {
-                    //内容改变的回调
-                    print('change $text');
-                  },
-                  onSubmitted: (text) {
-                    //内容提交(按回车)的回调
-                    print('submit $text');
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-              ),
-              MaterialButton(
-                height: 50,
-                minWidth: double.infinity,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
+                  MaterialButton(
+                    height: 50,
+                    minWidth: double.infinity,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
 //                    textColor: Colors.white,
-                color: Colors.blue,
-                textTheme: ButtonTextTheme.primary,
-                onPressed: loginClick,
-                child: Text('登录', style: TextStyle(fontSize: 17)),
-              )
-            ],
-          ),
-        )),
+                    color: Colors.blue,
+                    textTheme: ButtonTextTheme.primary,
+                    onPressed: loginClick,
+                    child: Text('登录', style: TextStyle(fontSize: 17)),
+                  )
+                ],
+              ),
+            )),
       ],
     );
   }

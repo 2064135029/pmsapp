@@ -17,3 +17,7 @@ class SpUtils {
     return data;
   }
 }
+
+class APPKEYS {
+  static const String ip = 'ipAddress';
+}

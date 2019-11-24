@@ -6,6 +6,9 @@ class RouteUtil {
   static void goMain(BuildContext context) {
     pushReplacementNamed(context, BaseConstant.routeMain);
   }
+  static void goSetIP(BuildContext context) {
+    pushNamed(context, BaseConstant.routeSet);
+  }
 //  static void loginSuccess(BuildContext context) {
 //    pushNamed(context, BaseConstant.routeMain);
 //  }
@@ -35,4 +38,5 @@ class BaseConstant {
 
   static const String routeMain = 'route_main';
   static const String routeLogin = 'route_login';
+  static const String routeSet = 'route_setIP';
 }

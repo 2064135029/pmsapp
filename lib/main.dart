@@ -9,6 +9,7 @@ import 'package:pmsapp/net/models/LoginModel.dart';
 import 'package:pmsapp/utils/RouteUtil.dart';
 import 'package:pmsapp/view/pages/HomePage.dart';
 import 'package:pmsapp/view/pages/LoginPage.dart';
+import 'package:pmsapp/view/pages/SetIpPage.dart';
 
 import 'common/config/Config.dart';
 import 'net/HttpRequest.dart';
@@ -68,7 +69,8 @@ class MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       routes: {
         BaseConstant.routeLogin: (ctx) => LoginPage(),
-        BaseConstant.routeMain: (ctx) => HomePage(text: '首页')
+        BaseConstant.routeMain: (ctx) => HomePage(text: '首页'),
+        BaseConstant.routeSet: (ctx) => SetIpPage()
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
