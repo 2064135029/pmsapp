@@ -1,33 +1,31 @@
 import 'dart:collection';
 
-
+import 'package:flutter/material.dart';
 import 'package:pmsapp/blocs/bloc_provider.dart';
+import 'package:pmsapp/common/config/Config.dart';
+import 'package:pmsapp/net/entity/app_entity.dart';
+import 'package:pmsapp/net/models/AppModel.dart';
+
 //import 'package:pmsapp/models/models.dart';
 //import 'package:pmsapp/utils/http_utils.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MainBloc implements BlocBase {
-  ///****** ****** ****** Version ****** ****** ****** /
+  BehaviorSubject<List<AppEntity>> _app = BehaviorSubject<List<AppEntity>>();
 
-//  BehaviorSubject<VersionModel> _version = BehaviorSubject<VersionModel>();
-//
-//  Sink<VersionModel> get _versionSink => _version.sink;
-//
-//  Stream<VersionModel> get versionStream => _version.stream.asBroadcastStream();
-//
-//  VersionModel _versionModel;
+  Sink<List<AppEntity>> get _appSink => _app.sink;
 
-  ///****** ****** ****** Version ****** ****** ****** /
+  Stream<List<AppEntity>> get appStream => _app.stream;
 
-  ///****** ****** ****** personal ****** ****** ****** /
-//  HttpUtils httpUtils = new HttpUtils();
-
-  MainBloc() {
-//    LogUtil.e("MainBloc......");
-  }
+  MainBloc() {}
 
   @override
   Future getData({String labelId, int page}) {
+    switch (labelId) {
+      case Ids.homePage:
+        return getAppData();
+        break;
+    }
     return null;
   }
 
@@ -41,9 +39,15 @@ class MainBloc implements BlocBase {
     return null;
   }
 
+  Future getAppData() {
+    AppModel.getAppclication().then((res) {
+//      print(res);
+    });
+  }
 
   @override
   void dispose() {
 //    _version.close();
+    _app.close();
   }
 }

@@ -8,3 +8,8 @@ class Config {
 class ContentType {
   static const String text = 'json';
 }
+
+class Ids {
+  static const String homePage = 'homePage';
+  static const String myCenter = 'myCenter';
+}

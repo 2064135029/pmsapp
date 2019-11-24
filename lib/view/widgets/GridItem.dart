@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pmsapp/net/entity/app_entity.dart';
 
 class GridItem extends StatelessWidget {
 
   String name;
 
-  GridItem({Key key, this.name}) : super(key: key);
+  AppEntity appEntity;
+  GridItem({Key key, this.appEntity}) : super(key: key);
 
   _tapItem(){
     print("dddd");
@@ -16,7 +18,7 @@ class GridItem extends StatelessWidget {
       child: new Column(children: <Widget>[Image.network(
         "https://cpnet.oss-cn-hangzhou.aliyuncs.com/article/20180828/%E9%AB%98%E4%BD%B3%E8%B7%AF%E6%A1%A5/g2.jpg",
         fit: BoxFit.cover,
-      ),Text(name)],));
+      ),Text(appEntity.name)],));
   }
 }
 /*
