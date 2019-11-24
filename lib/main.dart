@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pmsapp/blocs/application_bloc.dart';
 import 'package:pmsapp/blocs/bloc_provider.dart';
 import 'package:pmsapp/blocs/index.dart';
+import 'package:pmsapp/common/SpUtils.dart';
 import 'package:pmsapp/net/DataResult.dart';
 import 'package:pmsapp/net/models/LoginModel.dart';
 import 'package:pmsapp/utils/RouteUtil.dart';
@@ -43,7 +44,9 @@ class MyAppState extends State<MyApp> {
 
   // 初始化ulr
   _init(){
-    HttpRequest.setBaseUrl(Config.BaseUrl);
+    SpUtils.get(APPKEYS.ip).then((value){
+      HttpRequest.setBaseUrl(value);
+    });
   }
   // 监听bloc数据改变，做相应的逻辑判断
   _initListener(){
