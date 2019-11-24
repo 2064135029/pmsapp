@@ -21,6 +21,7 @@ dependencies:
   rxdart: ^0.22.0
   connectivity: ^0.4.5
   shared_preferences: ^0.5.4+5 #本地保存
+  crypto: ^2.1.1+1
 
 #  base_library:
 #    git:

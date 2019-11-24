@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final MainBloc bloc = BlocProvider.of<MainBloc>(context);
     bloc.getAppData();
-    SpUtils.get("token").then((value) {
+    SpUtils.get(APPKEYS.Token).then((value) {
       if (value == null) {
         RouteUtil.goLogin(context);
       }

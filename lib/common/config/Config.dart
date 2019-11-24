@@ -1,6 +1,6 @@
 class Config {
   static const bool DEBUG = true;
-  static const String TOKEN_KEY = "wujianhe";
+  static const String TOKEN_KEY = "token";
   static const String USER_BASIC_CODE = "user";
   static const String BaseUrl = "http://127.0.0.1:7001";
 }

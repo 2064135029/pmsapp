@@ -20,4 +20,5 @@ class SpUtils {
 
 class APPKEYS {
   static const String ip = 'ipAddress';
+  static const String Token = 'Token';
 }

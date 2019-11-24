@@ -44,9 +44,7 @@ class MyAppState extends State<MyApp> {
 
   // 初始化ulr
   _init(){
-    SpUtils.get(APPKEYS.ip).then((value){
-      HttpRequest.setBaseUrl(value);
-    });
+
   }
   // 监听bloc数据改变，做相应的逻辑判断
   _initListener(){
