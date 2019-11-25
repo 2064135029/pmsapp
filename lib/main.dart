@@ -11,6 +11,7 @@ import 'package:pmsapp/utils/RouteUtil.dart';
 import 'package:pmsapp/view/pages/HomePage.dart';
 import 'package:pmsapp/view/pages/LoginPage.dart';
 import 'package:pmsapp/view/pages/SetIpPage.dart';
+import 'package:pmsapp/view/pages/MainPage.dart';
 
 import 'common/config/Config.dart';
 import 'net/HttpRequest.dart';
@@ -24,6 +25,8 @@ void main() => runApp(BlocProvider<ApplicationBloc>(
     ));
 
 class MyApp extends StatefulWidget {
+  MyApp({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -32,22 +35,19 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _init();
     _initListener();
-
   }
 
   // 初始化ulr
-  _init(){
+  _init() {}
 
-  }
   // 监听bloc数据改变，做相应的逻辑判断
-  _initListener(){
+  _initListener() {
     final ApplicationBloc bloc = BlocProvider.of<ApplicationBloc>(context);
     bloc.appEventStream.listen((value) {
       switch (value.id) {
@@ -67,16 +67,16 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'PMS',
       routes: {
         BaseConstant.routeLogin: (ctx) => LoginPage(),
-        BaseConstant.routeMain: (ctx) => HomePage(text: '首页'),
+        BaseConstant.routeMain: (ctx) => MainPage(),
         BaseConstant.routeSet: (ctx) => SetIpPage()
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(text: "首页"),
+      home: MainPage(),
     );
   }
 }
