@@ -6,7 +6,9 @@ import 'package:pmsapp/common/config/Config.dart';
 import 'package:pmsapp/net/DataResult.dart';
 import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
+import 'package:pmsapp/net/entity/user_info_entity.dart';
 import 'package:pmsapp/net/models/AppModel.dart';
+import 'package:pmsapp/net/models/UserModel.dart';
 
 //import 'package:pmsapp/models/models.dart';
 //import 'package:pmsapp/utils/http_utils.dart';
@@ -18,6 +20,15 @@ class MainBloc implements BlocBase {
   Sink<List<AppDataData>> get _appSink => _app.sink;
 
   Stream<List<AppDataData>> get appStream => _app.stream;
+
+
+  //************************userInfo*********************
+  BehaviorSubject<UserInfoEntity> _userInfo  = BehaviorSubject<UserInfoEntity>();
+
+  Sink<UserInfoEntity> get _userInfoSink => _userInfo.sink;
+
+  Stream<UserInfoEntity> get userInfoStream => _userInfo.stream;
+
 
   MainBloc() {}
 
@@ -47,6 +58,15 @@ class MainBloc implements BlocBase {
       AppDataEntity appDataEntity = r.data;
       _appSink.add(appDataEntity.data);
       print(res);
+    });
+  }
+
+  // 获取用户信息
+  Future getUserInfo(){
+    UserModel.getUserInfo().then((res){
+      UserInfoEntity userInfoEntity = res.data;
+      _userInfo.add(userInfoEntity);
+//      print(userInfoEntity.userName);
     });
   }
 

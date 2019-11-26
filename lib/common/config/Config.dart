@@ -13,3 +13,8 @@ class Ids {
   static const String homePage = 'homePage';
   static const String myCenter = 'myCenter';
 }
+class AppConfig {
+  static const String appName = 'pms';
+  static const String version = '0.0.1';
+  static const bool isDebug = true;
+}
