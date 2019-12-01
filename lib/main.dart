@@ -73,6 +73,7 @@ class MyAppState extends State<MyApp> {
         BaseConstant.routeMain: (ctx) => MainPage(),
         BaseConstant.routeSet: (ctx) => SetIpPage()
       },
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -1,28 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
+import 'package:pmsapp/utils/RouteUtil.dart';
 
 class GridItem extends StatelessWidget {
-
   String name;
-
-
-
   AppDataData appEntity;
+
   GridItem({Key key, this.appEntity}) : super(key: key);
 
-  _tapItem(){
+  _tapItem(context) {
     print("dddd");
+    RouteUtil.pushPage(context, appEntity.page);
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new GestureDetector(onTap: _tapItem,
-      child: new Column(children: <Widget>[Image.network(appEntity.ic,
-        fit: BoxFit.cover,
-        width: 80,
-        height: 80,
-      ),Text(appEntity.name)],));
+    return new GestureDetector(
+        onTap: () => _tapItem(context),
+        child: new Column(
+          children: <Widget>[
+            Image.network(
+              appEntity.ic,
+              fit: BoxFit.cover,
+              width: 80,
+              height: 80,
+            ),
+            Text(appEntity.name)
+          ],
+        ));
   }
 }
 /*

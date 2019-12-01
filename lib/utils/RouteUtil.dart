@@ -1,14 +1,14 @@
-
-
 import 'package:flutter/cupertino.dart';
 
 class RouteUtil {
   static void goMain(BuildContext context) {
     pushReplacementNamed(context, BaseConstant.routeMain);
   }
+
   static void goSetIP(BuildContext context) {
     pushNamed(context, BaseConstant.routeSet);
   }
+
 //  static void loginSuccess(BuildContext context) {
 //    pushNamed(context, BaseConstant.routeMain);
 //  }
@@ -25,8 +25,13 @@ class RouteUtil {
   static void pushReplacementNamed(BuildContext context, String pageName) {
     Navigator.of(context).pushReplacementNamed(pageName);
   }
-}
 
+  static void pushPage(BuildContext context, Widget page, {String pageName}) {
+    if (context == null || page == null) return;
+    Navigator.push(
+        context, new CupertinoPageRoute<void>(builder: (ctx) => page));
+  }
+}
 
 class BaseConstant {
   static const String packageBase = 'base_library';
