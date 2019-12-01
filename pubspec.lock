@@ -64,6 +64,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.4"
+  dynamic_list_view:
+    dependency: "direct main"
+    description:
+      name: dynamic_list_view
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.9"
   flutter:
     dependency: "direct main"
     description: flutter
