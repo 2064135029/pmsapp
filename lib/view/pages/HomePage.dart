@@ -11,15 +11,22 @@ class HomePage extends StatelessWidget {
 
   HomePage({Key key, this.text}) : super(key: key);
 
-  _tap() {
-//    LogUtil.v({'d':'dd'});
-    print('ddddddd');
+  @override
+  StatelessElement createElement() {
+    // TODO: implement createElement
+    return super.createElement();
   }
+
 
   @override
   Widget build(BuildContext context) {
     final MainBloc bloc = BlocProvider.of<MainBloc>(context);
-    bloc.getAppData();
+//    bloc.appStream.listen((onData) {
+//      print(onData);
+//    });
+//    bloc.getAppData();
+
+//    print('kkkkkkkk');
     SpUtils.get(APPKEYS.Token).then((value) {
       if (value == null) {
         RouteUtil.goLogin(context);
@@ -58,8 +65,8 @@ class HomePage extends StatelessWidget {
                   );
                 }).toList();
                 return new GridView(
-                    //设置网格样式,
-                    //SliverGridDelegateWithFixedCrossAxisCount 一般用这个
+                  //设置网格样式,
+                  //SliverGridDelegateWithFixedCrossAxisCount 一般用这个
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3, //设置每行个数
                       mainAxisSpacing: 10, //设置空白的横线大小

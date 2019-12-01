@@ -13,7 +13,7 @@ class MyCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MainBloc bloc = BlocProvider.of<MainBloc>(context);
-    bloc.getUserInfo();
+//    bloc.getUserInfo();
 
     // TODO: implement build
     return new Scaffold(

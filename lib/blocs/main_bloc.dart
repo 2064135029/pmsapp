@@ -30,7 +30,10 @@ class MainBloc implements BlocBase {
   Stream<UserInfoEntity> get userInfoStream => _userInfo.stream;
 
 
-  MainBloc() {}
+  MainBloc() {
+    getAppData();
+    getUserInfo();
+  }
 
   @override
   Future getData({String labelId, int page}) {
