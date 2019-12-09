@@ -1,4 +1,5 @@
 import 'package:pmsapp/net/entity/login_data_entity.dart';
+import 'package:pmsapp/net/entity/parking_data_entity.dart';
 import 'package:pmsapp/net/entity/app_entity.dart';
 import 'package:pmsapp/net/entity/app_data_entity.dart';
 import 'package:pmsapp/net/entity/login_entity.dart';
@@ -10,6 +11,8 @@ class EntityFactory {
       return null;
     } else if (T.toString() == "LoginDataEntity") {
       return LoginDataEntity.fromJson(json) as T;
+    } else if (T.toString() == "ParkingDataEntity") {
+      return ParkingDataEntity.fromJson(json) as T;
     } else if (T.toString() == "AppEntity") {
       return AppEntity.fromJson(json) as T;
     } else if (T.toString() == "AppDataEntity") {

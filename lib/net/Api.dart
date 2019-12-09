@@ -5,4 +5,7 @@ class Api{
   static const String getUserInfo = "/app/user/getUserInfo"; // 获取用户对应权限应用列表
 
 
+  static const String getParking = "/app/application/getParking";
+
+
 }

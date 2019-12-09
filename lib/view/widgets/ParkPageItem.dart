@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pmsapp/net/entity/parking_data_entity.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ParkPageItem extends StatelessWidget {
-  String t;
+  ParkingDataData item;
   int tabIndex = 0;
 
-  ParkPageItem({Key key, this.t, this.tabIndex}) : super(key: key);
+  ParkPageItem({Key key, this.item, this.tabIndex}) : super(key: key);
 
   _acceptClick() {
     print('接单');
@@ -25,10 +26,10 @@ class ParkPageItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('车牌号：桂RG9961'),
-                    Text('申请人：吴建何'),
-                    Text('手机号码：18898832359'),
-                    Text('申请时间: 2019-12-10 09:10:11')
+                    Text('车牌号：' + item.carNum),
+                    Text('申请人：' + item.applyName),
+                    Text('手机号码：' + item.applyTel),
+                    Text('申请时间: ' + item.insertTime)
                   ],
                 ),
               ),

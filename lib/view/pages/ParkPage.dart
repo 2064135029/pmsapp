@@ -1,6 +1,9 @@
 import 'package:dynamic_list_view/DynamicListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pmsapp/net/DataResult.dart';
+import 'package:pmsapp/net/entity/parking_data_entity.dart';
+import 'package:pmsapp/net/models/ParkingModel.dart';
 import 'package:pmsapp/view/widgets/ParkPageItem.dart';
 
 class ParkPage extends StatelessWidget {
@@ -59,21 +62,26 @@ class TabView extends StatelessWidget {
   }
 
   Future<List> _initRequester() async {
-    return Future.value(List.generate(15, (i) => i));
+    DataResult result = await ParkingModel.getParkingData(
+        {"page": 1, "pageSize": 20, "status": 0});
+
+    ParkingDataEntity parkingDataEntity = result.data;
+    return parkingDataEntity.data;
   }
 
   Future<List> _dataRequester() async {
-    return Future.delayed(Duration(seconds: 2), () {
-      return List.generate(10, (i) => 15 + i);
-    });
+    DataResult result = await ParkingModel.getParkingData(
+        {"page": 1, "pageSize": 20, "status": 0});
+
+    ParkingDataEntity parkingDataEntity = result.data;
+    return parkingDataEntity.data;
   }
+
   Function _itemBuilder = (List dataList, BuildContext context, int index) {
-    String title = dataList[index].toString();
-//    context.widget.key;
-//    print(context.widget.);
+    ParkingDataData item = dataList[index];
     int tag = index % 3;
     return ParkPageItem(
-      t: title,
+      item: item,
       tabIndex: tag,
     );
   };

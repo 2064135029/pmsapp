@@ -2,6 +2,8 @@ PODS:
   - connectivity (0.0.1):
     - Flutter
     - Reachability
+  - dynamic_list_view (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - Reachability (3.2)
   - shared_preferences (0.0.1):
@@ -9,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
+  - dynamic_list_view (from `.symlinks/plugins/dynamic_list_view/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
 
@@ -19,6 +22,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
+  dynamic_list_view:
+    :path: ".symlinks/plugins/dynamic_list_view/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
   shared_preferences:
@@ -26,6 +31,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
+  dynamic_list_view: 715e9a7369dc2340db9a3fd4dd54134cfca4bf8f
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
