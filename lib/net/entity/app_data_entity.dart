@@ -53,7 +53,7 @@ class AppDataData {
     } else if (code == 'app0004') {
       page = VehiclePage(title: name,);
     } else if (code == 'app0005') {
-      page = RentPage(title: name,);
+      page = RentPage();
     } else if (code == 'app0006') {
       page = CleanPage(title: name,);
     } else if (code == 'app0007') {

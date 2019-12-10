@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/net/entity/parking_data_entity.dart';
+import 'package:pmsapp/net/models/ParkingModel.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ParkPageItem extends StatelessWidget {
@@ -9,15 +10,20 @@ class ParkPageItem extends StatelessWidget {
 
   ParkPageItem({Key key, this.item, this.tabIndex}) : super(key: key);
 
-  _acceptClick() {
+  _acceptClick(int id) async {
     print('接单');
+    await ParkingModel.appAcceptParking(id);
   }
+
+  _rejectClick() {}
+
+  _finshClick() {}
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build  return Container(padding: EdgeInsets.all(15.0), child: new Text(t));
 
-    if (tabIndex == 0) {
+    if (item.status == 0) {
       return Container(
           padding: EdgeInsets.all(15.0),
           child: Row(
@@ -36,12 +42,12 @@ class ParkPageItem extends StatelessWidget {
               RaisedButton(
                 color: Colors.blue,
                 textColor: Colors.white,
-                onPressed: () => _acceptClick(),
+                onPressed: () => _acceptClick(item.idparking),
                 child: Text('接单', style: TextStyle(fontSize: 17)),
               )
             ],
           ));
-    } else if (tabIndex == 1) {
+    } else if (item.status == 1) {
       return Container(
           padding: EdgeInsets.all(15.0),
           child: Row(
@@ -60,7 +66,7 @@ class ParkPageItem extends StatelessWidget {
               RaisedButton(
                 color: Colors.red[500],
                 textColor: Colors.white,
-                onPressed: () => _acceptClick(),
+                onPressed: () => _rejectClick(),
                 child: Text('放弃', style: TextStyle(fontSize: 17)),
               ),
               Padding(
@@ -70,7 +76,7 @@ class ParkPageItem extends StatelessWidget {
                 padding: EdgeInsets.all(2.0),
                 color: Colors.grey[500],
                 textColor: Colors.white,
-                onPressed: () => _acceptClick(),
+                onPressed: () => _finshClick(),
                 child: Text('完成', style: TextStyle(fontSize: 17)),
               ),
             ],

@@ -63,7 +63,7 @@ class TabView extends StatelessWidget {
 
   Future<List> _initRequester() async {
     DataResult result = await ParkingModel.getParkingData(
-        {"page": 1, "pageSize": 20, "status": 0});
+        {"page": 1, "pageSize": 20, "status": tag - 1});
 
     ParkingDataEntity parkingDataEntity = result.data;
     return parkingDataEntity.data;
@@ -71,7 +71,7 @@ class TabView extends StatelessWidget {
 
   Future<List> _dataRequester() async {
     DataResult result = await ParkingModel.getParkingData(
-        {"page": 1, "pageSize": 20, "status": 0});
+        {"page": 1, "pageSize": 20, "status": tag - 1});
 
     ParkingDataEntity parkingDataEntity = result.data;
     return parkingDataEntity.data;
@@ -79,10 +79,8 @@ class TabView extends StatelessWidget {
 
   Function _itemBuilder = (List dataList, BuildContext context, int index) {
     ParkingDataData item = dataList[index];
-    int tag = index % 3;
     return ParkPageItem(
-      item: item,
-      tabIndex: tag,
+      item: item
     );
   };
 }
