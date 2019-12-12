@@ -22,7 +22,6 @@ class ParkPageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build  return Container(padding: EdgeInsets.all(15.0), child: new Text(t));
-
     if (item.status == 0) {
       return Container(
           padding: EdgeInsets.all(15.0),

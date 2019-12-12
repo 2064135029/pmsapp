@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
 //    bloc.appStream.listen((onData) {
 //      print(onData);
 //    });
-//    bloc.getAppData();
+    bloc.getAppData();
 
 //    print('kkkkkkkk');
     SpUtils.get(APPKEYS.Token).then((value) {

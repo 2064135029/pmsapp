@@ -1,9 +1,10 @@
-import 'package:dynamic_list_view/DynamicListView.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pmsapp/net/DataResult.dart';
 import 'package:pmsapp/net/entity/parking_data_entity.dart';
 import 'package:pmsapp/net/models/ParkingModel.dart';
+import 'package:pmsapp/view/widgets/DynamicListView.dart';
 import 'package:pmsapp/view/widgets/ParkPageItem.dart';
 
 class ParkPage extends StatelessWidget {
